@@ -1,17 +1,20 @@
-from django.conf.urls import patterns, include, url
+#Standard Library
+import os
+#Django
+from django.conf.urls import patterns, url
+from django.conf import settings
+#home_page
+from home_page_app.views import main, contact
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'home_page.views.home', name='home'),
-    # url(r'^home_page/', include('home_page.foo.urls')),
+    url(r'^$', main),
+    url(r'^home*$', main),
+    url(r'^contact*$', contact)
+)
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+if settings.DEBUG:
+    STATIC_PATH = os.path.join(os.path.dirname(__file__), "static", "one_files", "HTML")
+    urlpatterns += patterns('',
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': STATIC_PATH})
 )
