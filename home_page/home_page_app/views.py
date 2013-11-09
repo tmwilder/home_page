@@ -1,10 +1,11 @@
 #Django
 from django.shortcuts import render
 
-def serve_main(request):
-    return render('main.html')
+
+def main(request):
+    return render(request, 'main.html')
 
 
-def send_email(request):
+def contact(request):
     #Add call to email func
-    return render('main.html')
+    return render(request, 'main.html')
