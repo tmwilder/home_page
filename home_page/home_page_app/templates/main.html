@@ -77,15 +77,26 @@
     	<h1>Connect</h1>
         <div class="top-divider"></div>
         	<div class="content">
-            	<div id="form">
-                	<form action="#">
-                    	<span>Name</span>
-                        <input type="text" name="name" class="name" />
-                        <span>Email</span>
-                        <input type="text" name="email" class="email"/>
-                        <span>Message</span>
-                        <textarea class="message"></textarea>
-                        <input type="submit" name="submite" value="Submit" class="submit">
+                <div id="form">
+                    <form action="{% url 'home_page_app.views.contact' %}" method="post" id="contact_form">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="fieldWrapper">
+                            {{ form.name.errors }}
+                            <span>Name</span>
+                            <input type="text" name="name" class="name" />
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.email.errors }}
+                            <span>Email</span>
+                            <input type="text" name="email" class="email"/>
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.message.errors }}
+                            <span>Message</span>
+                            <textarea class="message" name="message" form="contact_form"></textarea>
+                        </div>
+                        <input type="submit" name="submit" value="Submit" class="submit">
                     </form>
                 </div>
                 <div id="social-footer">

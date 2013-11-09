@@ -9,8 +9,8 @@ from home_page_app.views import main, contact
 
 urlpatterns = patterns('',
     url(r'^$', main),
-    url(r'^home*$', main),
-    url(r'^contact*$', contact)
+    url(r'^home/$', main),
+    url(r'^contact/$', contact)
 )
 
 if settings.DEBUG:

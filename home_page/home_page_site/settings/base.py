@@ -1,10 +1,11 @@
 import os.path as op
 BASE_DIR = op.dirname(op.dirname(op.dirname(op.abspath(__file__))))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
+    ("tim", "tim@localhost"),
 )
 
 ALLOWED_HOSTS = '*'
@@ -97,3 +98,5 @@ LOGGING = {
         },
     }
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
