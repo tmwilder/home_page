@@ -41,7 +41,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     op.join(BASE_DIR, "home_page_site", "static"),
-    op.join(BASE_DIR, "home_page_site", "static", "one_files", "HTML")
 )
 
 STATICFILES_FINDERS = (
@@ -72,7 +71,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'home_page_app'
+    'home_page_app',
+    'django.contrib.staticfiles'
 )
 
 LOGGING = {

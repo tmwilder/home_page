@@ -11,7 +11,6 @@ def main(request):
 
 
 def contact(request):
-    # raise(Exception(repr(request)))
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -24,7 +23,6 @@ def contact(request):
                       [admin_email for _, admin_email in settings.ADMINS],
                       fail_silently=False)
         else:
-            # raise Exception(repr(form))
             pass
     else:
         form = ContactForm()
